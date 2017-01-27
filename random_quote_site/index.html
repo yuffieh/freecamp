@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title></title>
+	    <script
+	  src="https://code.jquery.com/jquery-3.1.1.js"
+	  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+	  crossorigin="anonymous"></script>
+	  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	  <link rel="stylesheet" href="./css/font-awesome.min.css">
+    </head>
+    
+    <style>
+		body {
+			background-color: black;
+			height:100%;
+			font-family: 'Raleway', sans-serif;
+			-webkit-transition: background-color 1s;
+		}
+		
+		#main{
+			height:100vh;
+			background-color: transparent;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#content{
+			flex-direction: column;
+			padding:40px 50px;
+			display: flex;
+			height:auto;
+			width: 450px;
+			justify-content: center;
+			border-radius: 3px;
+			background-color:white;
+			overflow: scroll;
+
+		}
+	
+		.qu{
+			margin-right:0.5em;
+		}
+		
+		
+		#author{
+			font-size:.6em;
+			float:right;
+			align-self: flex-end;
+			-webkit-transition: color 1s;
+		}
+		
+		#quote{
+		    font-weight: 500;
+		    font-size: 1.75em;
+		    text-align: center;
+		    -webkit-transition: opacity 3s ease-in-out;
+		    -moz-transition: opacity 3s ease-in-out;
+		    -ms-transition: opacity 3s ease-in-out;
+		    -o-transition: opacity 3s ease-in-out;
+		     opacity: 1;
+		    -webkit-transition: color 1s;
+		}
+
+		#newQ{
+			float:right;
+		}
+
+
+		
+		button {
+			height: 34px;
+		    border: none;
+		    border-radius: 3px;
+		    color: #fff;
+		    background-color: #333;
+		    outline: none;
+		    font-size: 0.85em;
+		    padding:8px 13px 8px 13px;
+		    margin-top: 30px;
+		    opacity: 1;
+		    -webkit-transition: background-color 1s;
+		}
+
+
+
+    </style>
+    <body>
+
+
+		<div id="main">
+			<div id="content">
+
+				<span id="quote">QUOTE HERE</span>
+				<div id="buttons">
+					<button id="newQ">New Quote</button>
+					<button id="twitter"><i class="fa fa-twitter"></i></button>
+				</div>
+			</div>
+			
+
+			
+		</div>
+
+		<script>
+			
+			var quotes = [{"ID":1428,"title":"Paul Scrivens","content":"I&#8217;m creative because I did an icon navigation while everyone else on the planet sticks to words? No, it just means I didn&#8217;t want to stick to convention. If anything you can call it rebellious but certainly not creative. "},{"ID":1784,"title":"Freeman Thomas","content":"Good design begins with honesty, asks tough questions, comes from collaboration and from trusting your intuition."},{"ID":2235,"title":"Jonathan Ive","content":"Objects and their manufacture are inseparable, you understand a product if you understand how it&#8217;s made."},{"ID":1719,"title":"Jonathan Ive","content":"The word design is everything and nothing. The design and the product itself are inseparable."},{"ID":1332,"title":"James Goldsmith","content":"If you pay peanuts, you get monkeys. "},{"ID":927,"title":"Ingmar Bergman","content":"I make all my decisions on intuition. But then, I must know why I made that decision. I throw a spear into the darkness. That is intuition. Then I must send an army into the darkness to find the spear. That is intellect. "},{"ID":1240,"title":"Gabe Boning","content":"Everybody&#8217;s a web designer until, you know, they actually try to do it. "},{"ID":1126,"title":"Josef Muller-Brockmann","content":"The grid system is an aid, not a guarantee. "},{"ID":729,"title":"Von Glitschka","content":"Embrace change or become a Design-O-Saur. "},{"ID":2271,"title":"Bill Bernbach","content":"I warn you against believing that advertising is a science."},{"ID":2323,"title":"Victoria Pater","content":"Only show work you like, or you&#8217;ll end up being hired to do things you don&#8217;t like."},{"ID":2269,"title":"Bill Bernbach","content":"Rules are what the artist breaks; the memorage never emerged from a formula."},{"ID":2273,"title":"Bill Bernbach","content":"Just because your ad looks good is no insurance that it will get looked at. How many people do you know who are impeccably groomed&#8230; but dull?"},{"ID":1037,"title":"Alan Cooper","content":"If we want users to like our software we should design it to behave like a likeable person: respectful, generous and helpful. "},{"ID":2097,"title":"Miles Redd","content":"Buy the best and you only cry once."},{"ID":1063,"title":"Jakob Nielsen","content":"The web is the ultimate customer-empowering environment. He or she who clicks the mouse gets to decide everything. It is so easy to go elsewhere; all the competitors in the world are but a mouseclick away. "},{"ID":1612,"title":"Neil Hunt","content":"a 5% feature (used by less than 5% of all users) is a distraction for all the other users, and is better removed, unless it&#8217;s really critical (a small number of users do need to cancel service, for example)."},{"ID":196,"title":"Mandy Brown","content":"A well-designed text will seem weightless after a time; the initial feel of the book fades away as the mind becomes engrossed in the words. "},{"ID":54,"title":"Charles Eames","content":"The details are not the details. They make the design. "},{"ID":686,"title":"Moby","content":"My secret is being not terrible at a lot of things. "},{"ID":886,"title":"Victor Papanek","content":"The only important thing about design is how it relates to people. "},{"ID":2192,"title":"Barry Roos","content":"To ignore social media would be like early man ignoring fire."},{"ID":844,"title":"Rem Koolhaas","content":"I can think of nothing worse than becoming really popular, being all the rage. "},{"ID":1224,"title":"Herb Kelleher","content":"We have a strategic plan. It&#8217;s called doing things. "},{"ID":507,"title":"Massimo Vignelli","content":"There is no design without discipline. There is no discipline without intelligence. "},{"ID":1767,"title":"Louis C.K.","content":"I love making the stuff, that’s sort of the core of it. I love creating the stuff. It’s so satisfying to get from the beginning to the end, from a shaky nothing idea to something that’s well formed and the audience really likes. It’s like a drug: You keep trying to do it again and again and again. I’ve learned from experience that if you work harder at it, and apply more energy and time to it, and more consistency, you get a better result. It comes from the work."},{"ID":36,"title":"Freeman Thomas","content":"Good design begins with honesty, asks tough questions, comes from collaboration and from trusting your intuition. "},{"ID":1379,"title":"Chuck Green","content":"Good design is partially creativity and innovation, but primarily knowledge and awareness. "},{"ID":1129,"title":"Dale Harris","content":"Good ideas never go out of style. "},{"ID":491,"title":"Anonymous","content":"The amount a person uses his imagination is inversely proportional to the amount of punishment he will receive for using it. "},{"ID":2276,"title":"Michael Stinson","content":"Just let the type just do what it does."},{"ID":481,"title":"Frank Chimero","content":"People ignore design that ignores people. "},{"ID":704,"title":"Samuel Antupit","content":"If the bones don&#8217;t work, you&#8217;ve got a pile of skin. "},{"ID":22,"title":"D. H. Lawrence","content":"Design in art, is a recognition of the relation between various things, various elements in the creative flux. You can&#8217;t invent a design. You recognize it, in the fourth dimension. That is, with your blood and your bones, as well as with your eyes. "},{"ID":1219,"title":"Frank Lloyd Wright","content":"Form follows function &#8211; that has been misunderstood. Form and function should be one, joined in a spiritual union. "},{"ID":2161,"title":"Steve Krug","content":"Don’t let your design resist your readers. Don’t let it stand in the way of what they want to do: read."},{"ID":1401,"title":"Russell Bishop","content":"Never re-invent the wheel, unless you&#8217;re sure the client needn&#8217;t go anywhere. "},{"ID":835,"title":"Cool Hand Luke","content":"What we got here is&hellip; failure to communicate. "},{"ID":1828,"title":"Winnie The Pooh","content":"I shall sing that first line twice, and perhaps if I sing it very quickly, I shall find myself singing the third and fourth lines before I have time to think of them, and that will be a Good Song."},{"ID":715,"title":"Paul Rand","content":"Any system that sees aesthetics as irrelevant, that separates the artist from the product, that fragments the work of the individual, or creates by committee, or makes mincemeat of the creative process will in the long run diminish not only the product but the maker as well. "}];
+			
+			//quote function to get random quote & connect twitter button to be able to retweet quote. 
+			
+			function quote (){
+				var obj = quotes[Math.floor(Math.random() * ((quotes.length-1) - 0 + 1)) + 0];
+				
+				$("#twitter").click(function(){
+					
+			     window.location.href = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + obj.content + '" - ' + obj.title);
+
+				});
+	
+				return '<p id="test"><i class="qu fa fa-quote-left" aria-hidden="true"></i>' + obj.content + "<br><span id='author'> -" + obj.title + "</span></p>"
+			}
+			
+			
+			var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+			
+			function color (){
+				var color = colors[Math.floor(Math.random() * ((colors.length-1) - 0 + 1)) + 0];
+				
+				$('#quote').css('color', color);
+				$('button').css('background-color', color);
+				$('html body').css('background-color', color);
+				return;
+			}
+			
+			//appending quote to quote HTML onload
+			color()
+			$("#quote").html(quote());
+		
+			
+			//appending click to get new quote onto HTML
+			$("#newQ").click(function(){
+				color()
+				      $("#quote").animate({
+				          opacity: 0
+				        }, 500,
+				        function() {
+				          $(this).animate({
+				            opacity: 1
+				          }, 500);
+				          $('#test').html(quote);
+				        });			
+				
+			});
+		</script>
+
+
+
+
+
+
+
+
+    </body>
+</html>
